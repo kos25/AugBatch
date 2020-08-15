@@ -1,0 +1,54 @@
+.custombtn {
+  background-color: cornflowerblue;
+  color: white;
+  border: none;
+  height: 35px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.customdiv {
+  border: 1px solid;
+  margin: 5%;
+  background-color: beige;
+}
+.poster {
+  width: 90%;
+  margin-bottom: 20px;
+}
+.listclass {
+  display: flex;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+.inputlable {
+  font-family: serif;
+  font-weight: 600;
+  font-size: 19px;
+}
+
+.inputfields {
+  background-color: lightgray;
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+  height: 30px;
+}
+
+.savebutton {
+  background-color: #2000ff;
+  color: white;
+  width: 100px;
+  height: 35px;
+  border: none;
+  border-radius: 8px;
+}
+
+button:hover {
+  background-color: darkgreen;
+}
