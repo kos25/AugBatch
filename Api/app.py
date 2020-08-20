@@ -1,4 +1,4 @@
-from flask import Flask ,request
+from flask import Flask ,request , jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
@@ -16,12 +16,49 @@ class Contact(db.Model):
   Email = db.Column(db.String)
   Phone = db.Column(db.BigInteger)
 
+  def __init__(self,FirstName,LastName,Email,Phone):
+      self.FirstName  = FirstName
+      self.LastName = LastName
+      self.Email = Email
+      self.Phone = Phone
 
-def __init__(self,FirstName,LastName,Email,Phone) :
-    self.FirstName  = FirstName
-    self.LastName = LastName
-    self.Email = Email
-    self.Phone = Phone
+
+
+
+
+
+
+@app.route('/contact')
+def getContact():
+    con_List =  Contact.query.all()
+    conArray= []
+    for con in con_List :
+        c= {}
+        c['FirstName'] = con.FirstName
+        c['LastName'] = con.LastName
+        c['Email'] = con.Email
+        c['Phone'] = con.Phone
+        conArray.append(c)
+    return  jsonify(contactlist = conArray) 
+
+
+
+
+@app.route('/contact', methods=['POST'] )
+def postContact():
+    data = request.get_json()
+    FirstName = data['FirstName']
+    LastName = data['LastName']
+    Email = data['Email']
+    Phone = data['Phone']
+    cs = Contact(FirstName,LastName,Email,Phone)
+    db.session.add(cs)
+    db.session.commit()
+    return  jsonify('data is posted') 
+
+
+
+
 
 
 
