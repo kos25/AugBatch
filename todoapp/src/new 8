@@ -1,0 +1,18 @@
+ IF(logical_test, value_if_true, value_if_false) 
+ 
+ 
+ 
+IF((TODAY() -Early_Bird_1__c ) < 0 , EB_1__c ,
+IF((TODAY() -Early_Bird_2__c ) < 0, EB_2__c,
+IF((TODAY() -Early_Bird_3__c ) < 0 , EB_3__c,
+IF((TODAY() -Early_Bird_3__c ) < 0, EB_4__c, Standard_Price__c))))
+
+
+IF(EB_1_Discount_Active__c , 
+IF((TODAY() -Early_Bird_1__c ) < 0, EB_1__c, 
+IF(EB_2_Discount_Active__c, 
+IF((TODAY() -Early_Bird_2__c ) < 0, EB_2__c, 
+IF(EB_3_Discount_Active__c, 
+IF((TODAY() -Early_Bird_3__c ) < 0, EB_3__c, 
+IF(EB_4_Discount_Active__c, 
+IF((TODAY() -Early_Bird_4__c ), EB_4__c, Standard_Price__c) , Standard_Price__c)), Standard_Price__c)), Standard_Price__c) ) , Standard_Price__c) 

@@ -27,8 +27,6 @@ function validate() {
     Phone: 9988418218,
   };
 
-  console.log(parms);
-
   const Url = "http://localhost:5000/contact";
   axios
     .post(Url, parms)
@@ -58,7 +56,6 @@ function Showdata() {
   axios
     .get(Url)
     .then((res) => {
-      console.log(res);
       for (var i = 0; i < res.data.contactlist.length; i++) {
         var tr = document.createElement("tr");
 

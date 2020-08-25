@@ -33,7 +33,7 @@ def getContact():
     con_List =  Contact.query.all()
     conArray= []
     for con in con_List :
-        c= {}
+        c = {}
         c['FirstName'] = con.FirstName
         c['LastName'] = con.LastName
         c['Email'] = con.Email
@@ -54,7 +54,7 @@ def postContact():
     cs = Contact(FirstName,LastName,Email,Phone)
     db.session.add(cs)
     db.session.commit()
-    return  jsonify('data is posted') 
+    return  jsonify('data is posted Successfully') 
 
 
 
@@ -70,8 +70,7 @@ def Hello_Alean(name):
 
 @app.route('/')
 def Hello_Alean2():
-    URlvar = request.args.get('Name')
-    return  URlvar
+    return render_template('index.html')
 
 
 if __name__ == "__main__":
